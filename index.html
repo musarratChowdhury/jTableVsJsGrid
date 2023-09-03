@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/jquery-ui-custom/jquery-ui.css" />
+    <link
+      rel="stylesheet"
+      href="./lib/jquery-ui-custom/jquery-ui.structure.css"
+    />
+    <link rel="stylesheet" href="./lib/jquery-ui-custom/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="./lib/jtable.min.css" />
+    <link rel="stylesheet" href="./lib/jsgrid-theme.css" />
+    <link rel="stylesheet" href="./lib/jsgrid.css" />
+
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/jquery-ui-custom/jquery-ui.js"></script>
+    <script src="./lib/jquery.jtable.js"></script>
+    <script src="./lib/jsgrid.min.js"></script>
+  </head>
+  <body>
+    <input type="text" id="datepicker" />
+    <button class="ui-button ui-corner-all">Click me</button>
+    <div id="jTableContainer"></div>
+
+    <div id="jsGrid"></div>
+  </body>
+  <script>
+    $(document).ready(function () {
+      $("#datepicker").datepicker();
+      console.log($("#datepicker"));
+      // Sample data for jTable
+      var sampleData = [
+        {
+          ID: 1,
+          Name: "John Doe",
+          Age: 30,
+          Email: "john@example.com",
+          City: "New York",
+        },
+        {
+          ID: 2,
+          Name: "Alice Johnson",
+          Age: 25,
+          Email: "alice@example.com",
+          City: "Los Angeles",
+        },
+        {
+          ID: 3,
+          Name: "Bob Smith",
+          Age: 35,
+          Email: "bob@example.com",
+          City: "Chicago",
+        },
+        {
+          ID: 4,
+          Name: "Eva Williams",
+          Age: 28,
+          Email: "eva@example.com",
+          City: "San Francisco",
+        },
+      ];
+
+      // Assuming you've initialized jTable on #jTableContainer
+      $("#jTableContainer").jtable({
+        title: "Sample Table",
+        fields: {
+          ID: {
+            title: "ID",
+            key: true,
+            create: false,
+            edit: false,
+          },
+          Name: {
+            title: "Name",
+          },
+          Age: {
+            title: "Age",
+          },
+          Email: {
+            title: "Email",
+          },
+          City: {
+            title: "City",
+          },
+        },
+        actions: {
+          listAction: function (postData, jtParams) {
+            // This function should return the sampleData as a response
+            return {
+              Result: "OK",
+              Records: sampleData,
+              TotalRecordCount: sampleData.length,
+            };
+          },
+          // Add other CRUD actions as needed
+        },
+      });
+
+      // Load jTable data
+      $("#jTableContainer").jtable("load");
+      var clients = [
+        {
+          Name: "Otto Clay",
+          Age: 25,
+          Country: 1,
+          Address: "Ap #897-1459 Quam Avenue",
+          Married: false,
+        },
+        {
+          Name: "Connor Johnston",
+          Age: 45,
+          Country: 2,
+          Address: "Ap #370-4647 Dis Av.",
+          Married: true,
+        },
+        {
+          Name: "Lacey Hess",
+          Age: 29,
+          Country: 3,
+          Address: "Ap #365-8835 Integer St.",
+          Married: false,
+        },
+        {
+          Name: "Timothy Henson",
+          Age: 56,
+          Country: 1,
+          Address: "911-5143 Luctus Ave",
+          Married: true,
+        },
+        {
+          Name: "Ramona Benton",
+          Age: 32,
+          Country: 3,
+          Address: "Ap #614-689 Vehicula Street",
+          Married: false,
+        },
+      ];
+
+      var countries = [
+        { Name: "", Id: 0 },
+        { Name: "United States", Id: 1 },
+        { Name: "Canada", Id: 2 },
+        { Name: "United Kingdom", Id: 3 },
+      ];
+
+      $("#jsGrid").jsGrid({
+        width: "100%",
+        height: "400px",
+
+        inserting: true,
+        editing: true,
+        sorting: true,
+        paging: true,
+
+        data: clients,
+
+        fields: [
+          { name: "Name", type: "text", width: 150, validate: "required" },
+          { name: "Age", type: "number", width: 50 },
+          { name: "Address", type: "text", width: 200 },
+          {
+            name: "Country",
+            type: "select",
+            items: countries,
+            valueField: "Id",
+            textField: "Name",
+          },
+          {
+            name: "Married",
+            type: "checkbox",
+            title: "Is Married",
+            sorting: false,
+          },
+          { type: "control" },
+        ],
+      });
+    });
+  </script>
+</html>
