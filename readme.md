@@ -52,7 +52,7 @@ JTable is a jQuery-based grid control that focuses on providing powerful data vi
 
 ### Comparitive Analysis
 
-| jTable Column                                                                                  | jsGrid Column                                                             |
+| jTable                                                                                         | jsGrid                                                                    |
 | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | default filtering is not enabled/ manual setup needed                                          | filtering setup is built in                                               |
 | validation uses validation engine plugin, Exposes some events to enable validation with forms. | has built in validator support also custom validator support              |
