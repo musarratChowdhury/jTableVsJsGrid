@@ -60,7 +60,6 @@ JTable is a jQuery-based grid control that focuses on providing powerful data vi
 | has datetime input type by default                                                             | need to configure dateTime input manually                                 |
 | uses jquery ui theme                                                                           | need to configure table css                                               |
 | last release v2.6.0 (Oct 24, 2018)                                                             | last release v1.5.3 (dec 16, 2016)                                        |
-| last release v2.6.0 (Oct 24, 2018)                                                             | last release v1.5.3 (dec 16, 2016)                                        |
 
 ## Conclusion
 
