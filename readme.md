@@ -44,17 +44,23 @@ JTable is a jQuery-based grid control that focuses on providing powerful data vi
 
 ## Choosing the Right Plugin
 
-### Use JSGrid if:
+### Common Features
 
-- You need a lightweight solution.
-- Customization options are crucial for your project.
-- You prefer a simple and clean design.
+1. **Localization** : Both JTable and JsGrid has localization support.
 
-### Use JTable if:
+2. **QueryStringParams** : Both jTable and jsGrid uses query string params for search, filter and pagination
 
-- Your project requires advanced data visualization and manipulation.
-- You are working with large datasets.
-- You need rich UI controls and advanced features.
+### Comparitive Analysis
+
+| jTable Column                                                                                  | jsGrid Column                                                             |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| default filtering is not enabled/ manual setup needed                                          | filtering setup is built in                                               |
+| validation uses validation engine plugin, Exposes some events to enable validation with forms. | has built in validator support also custom validator support              |
+| create and edit form on popup by default                                                       | need to configure dialog setup to use popup for create and edit operation |
+| has datetime input type by default                                                             | need to configure dateTime input manually                                 |
+| uses jquery ui theme                                                                           | need to configure table css                                               |
+| last release v2.6.0 (Oct 24, 2018)                                                             | last release v1.5.3 (dec 16, 2016)                                        |
+| last release v2.6.0 (Oct 24, 2018)                                                             | last release v1.5.3 (dec 16, 2016)                                        |
 
 ## Conclusion
 
